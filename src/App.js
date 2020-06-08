@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
@@ -9,13 +8,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
-import Icon from '@material-ui/core/Icon';
-import Box from '@material-ui/core/Box';
 import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ControlledExpansionPanels from './devucation.js';
-import logo from './logo.svg';
 import 'fontsource-roboto';
 import { withStyles } from '@material-ui/core/styles';
 import './App.css';
@@ -32,13 +27,7 @@ const styles = theme => ({
 
   headerEmail: {
     textAlign: 'right',
-  },
-
-  intro: {
-    maxWidth: '70vw',
-    textAlign: 'left',
-    position: 'relative',
-    top: "30%",
+    textDecorationStyle: 'none',
   },
 
   introWrapper: {
@@ -49,10 +38,21 @@ const styles = theme => ({
     position: 'relative',
   },
 
+  intro: {
+    maxWidth: '70vw',
+    textAlign: 'left',
+    position: 'relative',
+    top: "20vh",
+  },
+
+  introText: {
+      marginBottom: 10,
+  },
+
   button: {
-    position: 'absolute',
-    left: 40,
-    bottom: '30%',
+    position: 'relative',
+    left: 0,
+    top: 30,
   },
 
   arrow: {
@@ -134,78 +134,74 @@ function App(props) {
               </Grid>
             </Grid>
             <Grid className={ classes.headerEmail } item xs={6}>
-            <Typography variant="subtitle1">tiffany@tiffanydenny.com
+            <Typography variant="subtitle1"><a href="mailto: tiffany@tiffanydenny.com">tiffany@tiffanydenny.com</a>
             </Typography>
             </Grid>
           </Grid>
           <div className={ classes.intro }>
-            <Typography variant="h3"
-                        gutterBottom="true">
-                        Need something built?
-            </Typography>
-            <Typography variant="subtitle1">
-                        That's my jam!
-            </Typography>
+            <div className={ classes.introText }>
+              <Typography variant="h3"
+                          gutterBottom="true">
+                          How can I help?
+              </Typography>
+              <Typography variant="subtitle1"
+                          gutterBottom="true">
+                          I used to help people relieve pain as a physical therapist and yoga instructor. Now I solve problems for people as a software developer - just another type of pain relief, really. I'm self-taught and looking for my first job in the industry. If you're hiring, I'd love to chat.
+              </Typography>
+              <Typography variant="subtitleh6">
+                          <a href="mailto: tiffany@tiffanydenny.com"> Get in touch!</a>
+              </Typography>
+            </div>
+            <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            className={ classes.button }
+            startIcon={ <CloudDownloadIcon /> }
+            href="https://drive.google.com/file/d/1LnHqRL_pRH28hdrytECZ4Cc_69FEDEV3/view?usp=sharing"
+            target="_blank"
+            > Resume PDF
+            </Button>
           </div>
-          <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          className={classes.button}
-          startIcon={<CloudDownloadIcon />}
-          href="./images/denny_resume.pdf"
-          > Resume PDF
-          </Button>
-          <div>
-            <ArrowDownwardIcon className={ classes.arrow }/>
-          </div>
+
+          <ArrowDownwardIcon className={ classes.arrow }/>
         </div>
       </Grid>
 
-      <Grid item xs={12}>
-        <div className={ classes.portfolioWrapper }>
-          <Card className={classes.portfolioCard} variant="outlined">
-            <CardContent>
-              <Typography className={classes.porftolioTitle} color="textSecondary" gutterBottom>
-                Portfolio Stand-in
-              </Typography>
-              <Typography variant="h5" component="h2">
-                Repo Title
-              </Typography>
-              <Typography className={classes.portfolioLink} color="textSecondary">
-                Live site link
-              </Typography>
-              <Typography variant="body2" component="p">
-                Repo info
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">View on github</Button>
-            </CardActions>
-          </Card>
+      <Grid item xs={12} className={ classes.portfolioWrapper }>
+        <div className={ classes.portfolioTabs }>
+          TABS
         </div>
-      </Grid>
-
-      <Grid className={ classes.paragraph } item xs={12}>
-        <Typography variant="body1" gutterBottom>
-          Thanks for checking out my site! I'm a software developer, but I spent twelve years in a rewarding career as a healthcare and wellness professional. I worked in clinical settings as a physical therapist, explored entrepreneurship as a yoga teacher and yoga therapist, and learned a great deal working in the nonprofit sector.
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          During that time, I was physically challenged with surgeries on my knees and ankles that created gaps in my employment and created a loss of confidence that a physically demanding career was right for me. I had a lot of “down” time, and the one thing I could always do consistently was work and explore on my computer. At one point, I realized technology heavily impacted every industry in which I had worked, and I began educating myself in software development. As it turns out, I feel curious, excited, and driven when working out coding problems and learning new technologies.
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          Now I translate the critical-thinking and problem-solving skills I used as a medical professional into my work in technology. I am a self-taught developer, currently with some experience with HTML/CSS, Ruby/Rails, JavaScript, Python, postgreSQL, and API development, and I'm looking for my first job in the field.
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          Please get in touch if you're hiring! I would welcome the chance to prove that my professional history combined with my ability to learn quickly, an equanimous and good-humored personality, and my commitment to producing quality work, will make me a great addition to your team.
-        </Typography>
-      </Grid>
-
-      <Grid item xs={12}>
-        <Typography variant="h4" gutterBottom>
-          I'm 'self-taught!' Here's how I learned to code.
-        </Typography>
-        <ControlledExpansionPanels />
+        <Grid container className={ classes.portfolioDisplay }
+              direction="row"
+              justify="center"
+              alignItems="flex-start">
+          <Grid item xs={6} className={ classes.porfolioGif }>
+            Gif
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container className={ classes.portfolioInfo }
+                  direction="column"
+                  justify="center"
+                  alignItems="center">
+              <Grid item xs={12} className={ classes.portInfoTitle }>
+                Title
+              </Grid>
+              <Grid item xs={12} className={ classes.portInfoTech }>
+                Tech Used
+              </Grid>
+              <Grid item xs={12} className={ classes.portInfoInfo }>
+                Description
+              </Grid>
+              <Grid item xs={12} className={ classes.portInfoResources }>
+                <Typography variant="h4" gutterBottom>
+                  I'm 'self-taught!' Here's how I learned to code.
+                </Typography>
+                <ControlledExpansionPanels />
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   </div>
