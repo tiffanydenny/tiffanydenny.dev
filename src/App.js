@@ -8,9 +8,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
-import Collapse from '@material-ui/core/Collapse';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import ControlledExpansionPanels from './devucation.js';
+import ScrollableTabsButtonForce from './portfolio.js';
 import 'fontsource-roboto';
 import { withStyles } from '@material-ui/core/styles';
 import './App.css';
@@ -66,8 +65,8 @@ const styles = theme => ({
     position: 'relative',
   },
 
-  portfolioCard: {
-    minWidth: 275,
+  porfolioGif: {
+    textAlign: "center",
   },
 
   bullet: {
@@ -87,9 +86,6 @@ const styles = theme => ({
   paragraph: {
     maxWidth: '75%',
     paddingLeft: '30vw',
-  },
-  devucation: {
-    width: '100%',
   },
 
   heading: {
@@ -168,40 +164,10 @@ function App(props) {
         </div>
       </Grid>
 
-      <Grid item xs={12} className={ classes.portfolioWrapper }>
-        <div className={ classes.portfolioTabs }>
-          TABS
-        </div>
-        <Grid container className={ classes.portfolioDisplay }
-              direction="row"
-              justify="center"
-              alignItems="flex-start">
-          <Grid item xs={6} className={ classes.porfolioGif }>
-            Gif
-          </Grid>
-          <Grid item xs={6}>
-            <Grid container className={ classes.portfolioInfo }
-                  direction="column"
-                  justify="center"
-                  alignItems="center">
-              <Grid item xs={12} className={ classes.portInfoTitle }>
-                Title
-              </Grid>
-              <Grid item xs={12} className={ classes.portInfoTech }>
-                Tech Used
-              </Grid>
-              <Grid item xs={12} className={ classes.portInfoInfo }>
-                Description
-              </Grid>
-              <Grid item xs={12} className={ classes.portInfoResources }>
-                <Typography variant="h4" gutterBottom>
-                  I'm 'self-taught!' Here's how I learned to code.
-                </Typography>
-                <ControlledExpansionPanels />
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
+      <Grid item xs={12} className={ classes.portfolioWrapper } style={{height: '100vh'}}>
+
+        <ScrollableTabsButtonForce className={ classes.portfolioTabs} />
+
       </Grid>
     </Grid>
   </div>
