@@ -4,6 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
+import Link from '@material-ui/core/Link';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
@@ -66,7 +67,19 @@ const styles = theme => ({
     },
 
   portfolioWrapper: {
+    height: '100vh',
+    left: '50%',
+    marginBottom: '10%',
     position: 'relative',
+    transform: 'translateX(-50%)',
+    width: '80%'
+  },
+
+  portfolioContent: {
+    backgroundColor: "#cfd8dc",
+    paddingBottom: '5%',
+    paddingTop: '5%',
+    maxWidth: "100%",
   },
 
   porfolioGif: {
@@ -111,13 +124,25 @@ const styles = theme => ({
     position: "relative",
   },
 
-  footerNav: {
-    bottom: "3em",
-    left: "45vw",
-    position: "absolute",
-    textAlign: "center",
-  }
+  footerInfo: {
+    position: 'absolute',
+    top: '20%',
+    left: '60%',
+    transform: 'translateX(-50%)',
+  },
 });
+
+function hoverColorLink(i) {
+  i.target.style.color = 'green';
+}
+
+function hoverWhiteLink(i) {
+  i.target.style.color = 'white';
+}
+
+function hoverBlackLink(i) {
+  i.target.style.color = 'black';
+}
 
 function App(props) {
   const { classes } = props
@@ -164,7 +189,7 @@ function App(props) {
                             I used to help people relieve pain as a physical therapist and yoga instructor. Now I solve problems for people as a software developer - just another type of pain relief, really. I'm self-taught and looking for my first job in the industry. If you're hiring, I'd love to chat.
                 </Typography>
                 <Typography variant="subtitleh6">
-                            <a href="mailto: tiffany@tiffanydenny.com"> Get in touch!</a>
+                            <a href="mailto: tiffany@tiffanydenny.com"> Get in touch --></a>
                 </Typography>
               </div>
               <Button
@@ -183,10 +208,10 @@ function App(props) {
           </div>
         </Grid>
 
-        <Grid item xs={12} className={ classes.portfolioWrapper } style={{height: '100vh'}}>
+        <Grid item xs={12} className={ classes.portfolioWrapper }>
 
           <HorizontalNonLinearStepper />
-          <Paper elevation={3} styles={{ maxWidth: "80%", backgroundColor: "#e0e0de" }}>
+          <Paper className={ classes.portfolioContent } elevation={1} >
             <Grid container
                   direction="row"
                   justify="flex-start"
@@ -213,7 +238,7 @@ function App(props) {
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
-                    <GitHubIcon /> <LanguageIcon />
+                    <GitHubIcon onMouseOver={hoverColorLink} onMouseOut={hoverBlackLink}/> <LanguageIcon onMouseOver={hoverColorLink} onMouseOut={hoverBlackLink}/>
                   </Grid>
                   <Grid item xs={12}>
                     <Typography variant="body1" gutterBottom>
@@ -228,26 +253,39 @@ function App(props) {
     </Grid>
     <div className={ classes.footer }>
       <Grid container
-            direction="row"
-            justify="center"
-            alignItems="center">
-        <Grid item xs={6}>
+            className={ classes.footerInfo }
+            direction='row'
+            justify='space-between'
+            alignItems='center'>
+        <Grid item xs={6} >
           <Typography variant="h4" >
             Tiffany Denny
           </Typography>
-          <Typography variant="body1" >
-            <a href="mailto: tiffany@tiffanydenny.com"> tiffany@tiffanydenny.com </a>
+          <Typography variant='body1' onMouseOver={hoverColorLink} onMouseOut={hoverWhiteLink}>
+            <a href="mailto: tiffany@tiffanydenny.com" style={{ color: 'white', opacity: '50%'}} > tiffany@tiffanydenny.com </a>
+          </Typography>
+          <Typography variant='body1' style={{ marginTop: '2em' }} >
+          A programmer asks — “Would you go to the shop and pick up a loaf of bread? And if they have eggs, get a dozen.” The other programmer returns with 12 loaves of bread. “They had eggs.”
+          </Typography>
+          <Typography variant='body2' >
+          ~DCSL Software
           </Typography>
         </Grid>
-        <Grid item xs={6}>
-          <Typography variant="body1" >
-            A funny
+        <Grid item xs={5}>
+          <Typography className={ classes.footerNav }>
+            <Link href="https://github.com/tiffanydenny" target="_blank">
+              <GitHubIcon style={{ color: 'white', fontSize: '2.5em', marginLeft: '1em', marginRight: '1em' }} onMouseOver={hoverColorLink} onMouseOut={hoverWhiteLink}/>
+            </Link>
+            <Link href="https://linkedin.com/in/tiffanydenny" target="_blank">
+              <LinkedInIcon style={{ color: 'white', fontSize: '2.5em',
+              marginRight: '1em' }} onMouseOver={hoverColorLink} onMouseOut={hoverWhiteLink} />
+            </Link>
+            <Link href="https://twitter.com/tiff_outdoors" target="_blank">
+              <TwitterIcon style={{ color: 'white', fontSize: '2.5em' }} onMouseOver={hoverColorLink} onMouseOut={hoverWhiteLink} />
+            </Link>
           </Typography>
         </Grid>
       </Grid>
-      <div className={ classes.footerNav }>
-        <GitHubIcon style={{ fontSize: '2em', marginRight: '1em' }} /> <LinkedInIcon style={{ fontSize: '2em', marginRight: '1em' }} /> <TwitterIcon style={{ fontSize: '2em' }} />
-      </div>
     </div>
   </div>
   );
