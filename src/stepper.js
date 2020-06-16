@@ -5,20 +5,23 @@ import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Link from '@material-ui/core/Link';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LanguageIcon from '@material-ui/icons/Language';
+import ReactPortfolio from './port-react.js';
+import RubyPortfolio from './port-ruby.js';
+import PythonPortfolio from './port-python.js';
+import FuturePortfolio from './port-future.js';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import IconButton from '@material-ui/core/IconButton';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-  },
-  button: {
-    marginRight: theme.spacing(1),
-  },
-  completed: {
-    display: 'inline-block',
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
   },
 }));
 
@@ -29,15 +32,15 @@ function getSteps() {
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return 'Step 1: Select campaign settings...';
+      return <ReactPortfolio />;
     case 1:
-      return 'Step 2: What is an ad group anyways?';
+      return <RubyPortfolio />;
     case 2:
-      return 'Step 3: This is the bit I really care about!';
+      return <PythonPortfolio />;
     case 3:
-      return 'Step 4: ???'
+      return <FuturePortfolio />
     default:
-      return 'Unknown step';
+      return <ReactPortfolio />;
   }
 }
 
@@ -104,6 +107,35 @@ export default function HorizontalNonLinearStepper() {
           </Step>
         ))}
       </Stepper>
+      <div>
+        <div>
+          <div>
+            <Grid container
+                  spacing={8}
+                  direction='row'
+                  justify='center'
+                  alignItems='center'>
+              <Grid item xs={1}>
+                <IconButton disabled={activeStep === 0} onClick={handleBack}>
+                  <ArrowBackIosIcon />
+                </IconButton>
+              </Grid>
+              <Grid item xs={10}>
+                {getStepContent(activeStep)}
+              </Grid>
+              <Grid item xs={1}>
+                <IconButton
+                  variant="contained"
+                  color="primary"
+                  onClick={handleNext}
+                >
+                  <ArrowForwardIosIcon />
+                </IconButton>
+              </Grid>
+            </Grid>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
