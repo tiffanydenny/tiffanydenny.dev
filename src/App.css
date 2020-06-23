@@ -1,10 +1,10 @@
 .App {
-   /* background-image: url(./images/colorsplash.jpg); */
-
+  /* background-image: url(./images/background_1.jpg); */
 }
 
 a {
   text-decoration: none;
+  color: #ff1744;
 }
 
 a:hover {
@@ -34,7 +34,7 @@ a:hover {
 }
 
 .App-link {
-  color: #61dafb;
+  color: #ff1744;
 }
 
 @keyframes App-logo-spin {

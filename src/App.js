@@ -21,6 +21,7 @@ import { withStyles } from '@material-ui/core/styles';
 import './App.css';
 
 const styles = theme => ({
+
   header: {
     marginTop: '1vh',
     maxWidth: '95%',
@@ -124,13 +125,12 @@ function App(props) {
   const { classes } = props
   return (
     <div className="App">
-    <Grid container
-          direction="column"
-          justify="space-between"
-          alignItems="stretch"
-          spacing={5}
-    >
-        <Grid item xs={12}>
+      <Grid container
+            direction="column"
+            justify="space-between"
+            alignItems="stretch"
+            spacing={5} >
+        <Grid item xs={12} >
           <div className={ classes.introWrapper }>
             <Grid className={ classes.header } container spacing={3}>
               <Grid item xs={6}>
@@ -205,7 +205,7 @@ function App(props) {
           <Typography variant="h4" >
             Tiffany Denny
           </Typography>
-          <Button color="secondary"
+          <Button color="grey"
                   href="mailto: tiffany@tiffanydenny.com"
                   target="_blank"
                   style={{ textTransform: "lowercase" }}>

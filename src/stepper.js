@@ -121,7 +121,9 @@ export default function HorizontalNonLinearStepper() {
                 </IconButton>
               </Grid>
               <Grid item xs={10}>
-                {getStepContent(activeStep)}
+                <Paper style={{ backgroundColor: '#eceff1', paddingBottom: '5%',paddingTop: '5%', maxWidth: '100%' }} elevation={1} >
+                  {getStepContent(activeStep)}
+                </Paper>
               </Grid>
               <Grid item xs={1}>
                 <IconButton
