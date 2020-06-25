@@ -13,7 +13,8 @@
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
     "react-scripts": "3.4.1",
-    "serve": "^11.3.2"
+    "serve": "^11.3.2",
+    "typescript": "^2.8.0"
   },
   "engines": {
     "npm": "6.x",
@@ -21,7 +22,7 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "start": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
