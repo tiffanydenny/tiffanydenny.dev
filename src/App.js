@@ -19,6 +19,8 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
 import './App.css';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+
 
 const styles = theme => ({
 
@@ -60,7 +62,12 @@ const styles = theme => ({
     position: 'absolute',
     left: 40,
     bottom: '3rem',
+    onScroll: 'display=none',
     },
+
+  arrowhide: {
+    display: 'none',
+  },
 
   portfolioWrapper: {
     left: '50%',
@@ -122,6 +129,7 @@ const styles = theme => ({
 
 
 function App(props) {
+  const trigger = useScrollTrigger();
   const { classes } = props
   return (
     <div className="App">
@@ -186,7 +194,7 @@ function App(props) {
               </Button>
             </div>
 
-            <ArrowDownwardIcon className={ classes.arrow }/>
+            <ArrowDownwardIcon className={ trigger ? classes.arrowhide : classes.arrow } />
           </div>
         </Grid>
 
