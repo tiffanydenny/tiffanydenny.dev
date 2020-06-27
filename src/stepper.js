@@ -17,11 +17,36 @@ import FuturePortfolio from './port-future.js';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import IconButton from '@material-ui/core/IconButton';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+  },
+
+  portfolioContent: {
+    backgroundColor: '#eceff1',
+    paddingBottom: '5%',
+    paddingTop: '5%',
+    maxWidth: '100%',
+    maxHeight: '70vh',
+    [theme.breakpoints.down('sm')]: {
+      paddingBottom: '5%',
+      paddingTop: '5%',
+      maxWidth: '100%',
+    },
+    [theme.breakpoints.down('xs')]: {
+      paddingBottom: '5%',
+      paddingTop: '5%',
+      maxWidth: '100%',
+    },
   },
 }));
 
@@ -117,21 +142,23 @@ export default function HorizontalNonLinearStepper() {
                   alignItems='center'>
               <Grid item xs={1}>
                 <IconButton disabled={activeStep === 0} onClick={handleBack}>
-                  <ArrowBackIosIcon />
+                  {theme.direction === 'rtl' ? <ArrowForwardIosIcon /> : <ArrowBackIosIcon />}
                 </IconButton>
               </Grid>
-              <Grid item xs={10}>
-                <Paper style={{ backgroundColor: '#eceff1', paddingBottom: '5%',paddingTop: '5%', maxWidth: '100%' }} elevation={1} >
-                  {getStepContent(activeStep)}
-                </Paper>
-              </Grid>
+              <ThemeProvider theme={theme}>
+                <Grid item xs={10}>
+                  <Paper className={ classes.portfolioContent } elevation={1} >
+                    {getStepContent(activeStep)}
+                  </Paper>
+                </Grid>
+              </ThemeProvider>
               <Grid item xs={1}>
                 <IconButton
                   variant="contained"
                   color="primary"
                   onClick={handleNext}
                 >
-                  <ArrowForwardIosIcon />
+                  {theme.direction === 'rtl' ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
                 </IconButton>
               </Grid>
             </Grid>

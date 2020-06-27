@@ -7,21 +7,50 @@ import Link from '@material-ui/core/Link';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LanguageIcon from '@material-ui/icons/Language';
 import IconButton from '@material-ui/core/IconButton';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
+
+const useStyles = makeStyles((theme) => ({
+
+  img: {
+    maxHeight: '75vh',
+    transform: 'translateY(-3)',
+    [theme.breakpoints.down('sm')]: {
+      height: 'auto',
+      width: '100%',
+    },
+  },
+
+  gifContainer: {
+    maxHeight: '70vh',
+    [theme.breakpoints.down('sm')]: {
+      backgroundColor: 'blue',
+      height: 'auto',
+      width: '100%',
+    },
+  },
+}))
 
 export default function ReactPortfolio() {
+  const classes = useStyles();
+
   return (
     <Grid container
           direction="row"
-          justify="flex-start"
+          justify="space-evenly"
           alignItems="stretch"
+
           style={{ maxHeight: '100%'}}>
-      <Grid item xs={6} style={{ maxHeight: '70vh' }}>
+      <Grid item md={6} sm={12} className={ classes.gifContainer } >
         <div style={{ textAlign: "center" }}>
-          <img style={{ maxHeight: '75vh', transform: 'translateY(-3%)' }} src={require("./images/ghbattle.gif")} alt="Demo">
+          <img src={require("./images/ghbattle.gif")} alt="Demo">
           </img>
         </div>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item md={6} sm={12}>
         <Grid container
               direction="column"
               justify="center"

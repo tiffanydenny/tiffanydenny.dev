@@ -18,19 +18,48 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import './App.css';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Hidden from '@material-ui/core/Hidden';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 
 
-const styles = theme => ({
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
 
-  header: {
-    marginTop: '1vh',
-    maxWidth: '95%',
+
+const useStyles = makeStyles((theme) => ({
+
+  paragraph: {
+    maxWidth: '75%',
+    paddingLeft: '30vw',
   },
 
-  headerAvatar: {
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    flexBasis: '33.33%',
+    flexShrink: 0,
+  },
+
+  secondaryHeading: {
+    fontSize: theme.typography.pxToRem(15),
+    color: theme.palette.text.secondary,
+  },
+
+  header: {
+    marginTop: 20,
+    maxWidth: '95%',
+    [theme.breakpoints.down('xs')]: {
+      marginTop: 0,
+    },
+  },
+
+  headerText: {
     textAlign: 'left',
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'right',
+    },
   },
 
   headerEmail: {
@@ -44,13 +73,21 @@ const styles = theme => ({
     paddingLeft: 40,
     paddingRight: 40,
     position: 'relative',
+    [theme.breakpoints.down('xs')]: {
+      paddingLeft: 20,
+      paddingRight: 20,
+    },
   },
 
   intro: {
     maxWidth: '70vw',
     textAlign: 'left',
     position: 'relative',
-    top: "20vh",
+    top: '20vh',
+    [theme.breakpoints.down('xs')]: {
+      maxWidth: '90vw',
+      top: '10vh',
+    },
   },
 
   introText: {
@@ -77,60 +114,36 @@ const styles = theme => ({
     width: '85%'
   },
 
-  porfolioGif: {
-    textAlign: "center",
-  },
-
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-
-  porfolioTitle: {
-    fontSize: 14,
-  },
-
-  portfolioLink: {
-    marginBottom: 12,
-  },
-
-  paragraph: {
-    maxWidth: '75%',
-    paddingLeft: '30vw',
-  },
-
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    flexBasis: '33.33%',
-    flexShrink: 0,
-  },
-
-  secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary,
-  },
-
   footer: {
     backgroundColor: "#37474f",
     color: "#fff",
-    height: 300,
+    height: 275,
     opacity: "75%",
+    paddingTop: '2em',
     position: "relative",
   },
 
   footerInfo: {
-    position: 'absolute',
-    top: '20%',
-    left: '60%',
-    transform: 'translateX(-50%)',
+    textAlign: 'center',
   },
-});
+
+  footerNav: {
+    marginBottom: '1em',
+  },
+
+  footerFunny: {
+    maxWidth: '75%',
+    textAlign: 'center',
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '95%',
+    },
+  },
+}));
 
 
-function App(props) {
+export default function App() {
   const trigger = useScrollTrigger();
-  const { classes } = props
+  const classes = useStyles();
   return (
     <div className="App">
       <Grid container
@@ -141,41 +154,47 @@ function App(props) {
         <Grid item xs={12} >
           <div className={ classes.introWrapper }>
             <Grid className={ classes.header } container spacing={3}>
-              <Grid item xs={6}>
+              <Grid item xs={12} sm={6}>
                 <Grid container spacing={3}
                                 justify="flex-start"
                                 alignItems="center"
                                 >
-                  <Grid item sm={1} xs={2}>
+                  <Grid item md={1} sm={2} xs={6}>
                     <Avatar alt="Tiffany Denny" src={ require(`./images/Tiff_headshot_site.jpg`) }/>
                   </Grid>
-                  <Grid className={ classes.headerAvatar } item sm={11} xs={10}>
-                  <Typography variant="h6">Tiffany Denny
-                  </Typography>
-                  <Typography variant="subtitle1">Software Developer
-                  </Typography>
+                  <Grid className={ classes.headerText } item md={11} sm={10} xs={6}>
+                  <ThemeProvider theme={theme}>
+                    <Typography variant="h6">Tiffany Denny
+                    </Typography>
+                    <Typography variant="subtitle1">Software Developer
+                    </Typography>
+                  </ThemeProvider>
                   </Grid>
                 </Grid>
               </Grid>
               <Grid className={ classes.headerEmail } item xs={6}>
-                <Button color="primary"
-                        style={{ textTransform: "lowercase", fontSize: "1em"}}
-                        href="mailto: tiffany@tiffanydenny.com"
-                        target="_blank">
-                        tiffany@tiffanydenny.com
-                </Button>
+                <Hidden xsDown>
+                  <Button color="primary"
+                          style={{ textTransform: "lowercase", fontSize: "1em"}}
+                          href="mailto: tiffany@tiffanydenny.com"
+                          target="_blank">
+                          tiffany@tiffanydenny.com
+                  </Button>
+                </Hidden>
               </Grid>
             </Grid>
             <div className={ classes.intro }>
               <div className={ classes.introText }>
-                <Typography variant="h3"
-                            gutterBottom="true">
-                            How can I help?
-                </Typography>
-                <Typography variant="subtitle1"
-                            gutterBottom="true">
-                            I used to help people relieve pain as a physical therapist and yoga instructor. Now I solve problems for people as a software developer - just another type of pain relief, really. I'm self-taught and looking for my first job in the industry. If you're hiring, I'd love to chat.
-                </Typography>
+                <ThemeProvider theme={theme}>
+                  <Typography variant="h3"
+                              gutterBottom="true">
+                              How can I help?
+                  </Typography>
+                  <Typography variant="subtitle1"
+                              gutterBottom="true">
+                              I used to help people relieve pain as a physical therapist and yoga instructor. Now I solve problems for people as a software developer - just another type of pain relief, really. I'm self-taught and looking for my first job in the industry. If you're hiring, I'd love to chat.
+                  </Typography>
+                </ThemeProvider>
                 <Button color="primary"
                         href="mailto: tiffany@tiffanydenny.com"
                         target="_blank">
@@ -193,51 +212,55 @@ function App(props) {
               > Download My Resume
               </Button>
             </div>
-
-            <ArrowDownwardIcon className={ trigger ? classes.arrowhide : classes.arrow } />
+            <div>
+              <ArrowDownwardIcon className={ trigger ? classes.arrowhide : classes.arrow } />
+            </div>
           </div>
         </Grid>
 
         <Grid item xs={12} className={ classes.portfolioWrapper }>
           <HorizontalNonLinearStepper />
         </Grid>
-
     </Grid>
+
     <div className={ classes.footer }>
       <Grid container
-            className={ classes.footerInfo }
-            direction='row'
-            justify='space-between'
-            alignItems='center'>
-        <Grid item xs={6} >
-          <Typography variant="h4" >
-            Tiffany Denny
-          </Typography>
+            direction='column'
+            justify='space-evenly'
+            alignItems='center'
+            spacing={2}>
+        <Grid item xs={12} className={ classes.footerInfo }>
+          <ThemeProvider theme={theme}>
+            <Typography variant="h4" >
+              Tiffany Denny
+            </Typography>
+          </ThemeProvider>
           <Button color="grey"
                   href="mailto: tiffany@tiffanydenny.com"
                   target="_blank"
                   style={{ textTransform: "lowercase" }}>
                   tiffany@tiffanydenny.com
           </Button>
-          <Typography variant='body1' style={{ marginTop: '2em' }} >
-          A programmer asks — “Would you go to the shop and pick up a loaf of bread? And if they have eggs, get a dozen.” The other programmer returns with 12 loaves of bread. “They had eggs.”
-          </Typography>
-          <Typography variant='body2' >
-          ~DCSL Software
-          </Typography>
         </Grid>
-        <Grid item xs={5}>
-          <Typography className={ classes.footerNav }>
-            <Link href="https://github.com/tiffanydenny" target="_blank">
-              <GitHubIcon style={{ color: 'white', fontSize: '2.5em', marginLeft: '1em', marginRight: '1em' }} />
-            </Link>
-            <Link href="https://linkedin.com/in/tiffanydenny" target="_blank">
-              <LinkedInIcon style={{ color: 'white', fontSize: '2.5em',
-              marginRight: '1em' }} />
-            </Link>
-            <Link href="https://twitter.com/tiff_outdoors" target="_blank">
-              <TwitterIcon style={{ color: 'white', fontSize: '2.5em' }} />
-            </Link>
+        <Grid item xs={12} >
+          <ThemeProvider theme={theme}>
+            <Typography className={ classes.footerNav }>
+              <Link href="https://github.com/tiffanydenny" target="_blank">
+                <GitHubIcon style={{ color: 'white', fontSize: '2.5em', marginRight: '1em' }} />
+              </Link>
+              <Link href="https://linkedin.com/in/tiffanydenny" target="_blank">
+                <LinkedInIcon style={{ color: 'white', fontSize: '2.5em',
+                marginRight: '1em' }} />
+              </Link>
+              <Link href="https://twitter.com/tiff_outdoors" target="_blank">
+                <TwitterIcon style={{ color: 'white', fontSize: '2.5em' }} />
+              </Link>
+            </Typography>
+          </ThemeProvider>
+        </Grid>
+        <Grid item xs={12} className={ classes.footerFunny }>
+          <Typography variant='body1' >
+          A programmer asks — “Would you go to the shop and pick up a loaf of bread? And if they have eggs, get a dozen.” The other programmer returns with 12 loaves of bread. “They had eggs.” <span style={{ fontStyle: 'italic', fontSize: '.9em'}}> ~DCSL Software </span>
           </Typography>
         </Grid>
       </Grid>
@@ -245,5 +268,3 @@ function App(props) {
   </div>
   );
 }
-
-export default withStyles(styles)(App);
