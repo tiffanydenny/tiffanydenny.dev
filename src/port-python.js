@@ -7,31 +7,87 @@ import Link from '@material-ui/core/Link';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LanguageIcon from '@material-ui/icons/Language';
 import IconButton from '@material-ui/core/IconButton';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
+
+const useStyles = makeStyles((theme) => ({
+  contentContainer: {
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: '1em',
+      alignItems: 'center',
+    },
+  },
+
+  contentDescription: {
+    marginTop: '1rem',
+    paddingRight: '2rem',
+    [theme.breakpoints.down('sm')]: {
+      paddingRight: 0
+    },
+  },
+
+  gif: {
+    maxHeight: '75vh',
+    maxWidth: '100%',
+    transform: 'translateY(-3)',
+  },
+
+  gifContainer: {
+    maxHeight: '75vh',
+    [theme.breakpoints.down('sm')]: {
+      height: 'auto',
+      width: '100%',
+    },
+  },
+
+  gifDiv: {
+    textAlign: 'center',
+  },
+
+  portHeader: {
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'center',
+    },
+  },
+
+  portSubHead: {
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'center',
+    },
+  },
+}))
 
 export default function PythonPortfolio() {
+  const classes = useStyles();
+
   return (
     <Grid container
           direction="row"
           justify="flex-start"
           alignItems="stretch"
-          style={{ maxHeight: '100%'}}>
-      <Grid item xs={6} style={{ maxHeight: '70vh' }}>
-        <div style={{ textAlign: "center" }}>
-          <img style={{ maxHeight: '75vh', transform: 'translateY(-3%)' }} src={require("./images/comingsoon.gif")} alt="Demo">
+          className={ classes.contentContainer }>
+      <Grid item md={6} sm={12} className={ classes.gifContainer } >
+        <div className={ classes.gifDiv }>
+          <img className={ classes.gif } src={require("./images/comingsoon.gif")} alt="Demo">
           </img>
         </div>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item md={6} sm={12}>
         <Grid container
               direction="column"
               justify="center"
-              alignItems="flex-start">
+              alignItems="flex-start"
+              className={ classes.contentContainer }>
           <Grid item xs={12}>
             <Typography variant="h4"
-                        gutterBottom="true">
+                        gutterBottom="true"
+                        className={ classes.portHeader }>
                         Twittalyzer
             </Typography>
-            <Typography variant="subtitle1" gutterBottom="false" style={{ paddingRight: '2rem'}} >
+            <Typography variant="subtitle1" gutterBottom="false" className={ classes.portSubHead }  >
               Python app using the Twitter API and OAuth
             </Typography>
           </Grid>
@@ -48,7 +104,7 @@ export default function PythonPortfolio() {
             </IconButton>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="body1" style={{ marginTop: '1rem', paddingRight: '2rem' }}>
+            <Typography variant="body1" className={ classes.contentDescription } >
               <div style={{ paddingBottom: '1em' }}>
               As my interest in backend develpment grew, I wanted more experience with databases, so I took this <a href='https://www.youtube.com/watch?v=qw--VYLpxG4&list=PL3Wb0P4edCiszDGASKO99gK7eKUFJi3tU&index=2&t=1s'>PostgreSQL Tutorial </a> with Nelson Djalo.
               </div>

@@ -8,31 +8,87 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LanguageIcon from '@material-ui/icons/Language';
 import IconButton from '@material-ui/core/IconButton';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
+
+const useStyles = makeStyles((theme) => ({
+  contentContainer: {
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: '1em',
+      alignItems: 'center',
+    },
+  },
+
+  contentDescription: {
+    marginTop: '1rem',
+    paddingRight: '2rem',
+    [theme.breakpoints.down('sm')]: {
+      paddingRight: 0
+    },
+  },
+
+  gif: {
+    maxHeight: '75vh',
+    maxWidth: '100%',
+    transform: 'translateY(-3)',
+  },
+
+  gifContainer: {
+    maxHeight: '75vh',
+    [theme.breakpoints.down('sm')]: {
+      height: 'auto',
+      width: '100%',
+    },
+  },
+
+  gifDiv: {
+    textAlign: 'center',
+  },
+
+  portHeader: {
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'center',
+    },
+  },
+
+  portSubHead: {
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'center',
+    },
+  },
+}))
 
 export default function FuturePortfolio() {
+  const classes = useStyles();
+
   return (
     <Grid container
           direction="row"
-          justify="flex-start"
+          justify="space-evenly"
           alignItems="stretch"
-          style={{ maxHeight: '100%'}}>
-      <Grid item xs={6} style={{ maxHeight: '70vh' }}>
-        <div style={{ textAlign: "center" }}>
-          <img style={{ maxHeight: '75vh', transform: 'translateY(-3%)' }} src={require("./images/swansongif.gif")} alt="Demo">
+          className={ classes.contentContainer }>
+      <Grid item md={6} sm={12} className={ classes.gifContainer } >
+        <div className={ classes.gifDiv }>
+          <img className={ classes.gif } src={require("./images/swansongif.gif")} alt="Demo">
           </img>
         </div>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item md={6} sm={12}>
         <Grid container
               direction="column"
               justify="center"
-              alignItems="flex-start">
+              alignItems="flex-start"
+              className={ classes.contentContainer }>
           <Grid item xs={12}>
             <Typography variant="h4"
-                        gutterBottom="true">
+                        gutterBottom="true"
+                        className={ classes.portHeader }>
                         Your Project
             </Typography>
-            <Typography variant="subtitle1" gutterBottom="false" style={{ paddingRight: '2rem' }}>
+            <Typography variant="subtitle1" gutterBottom="false" className={ classes.portSubHead } >
               "You can't hack into a typewriter. That's all I have to say."
               - Ron Swanson
             </Typography>
@@ -50,7 +106,7 @@ export default function FuturePortfolio() {
             </IconButton>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="body1" style={{ marginTop: '1rem', paddingRight: '2rem' }}>
+            <Typography variant="body1" className={ classes.contentDescription } >
               <div style={{ paddingBottom: '1em' }}>
               Ron Swanson doesn't like computers, but I do!
               </div>

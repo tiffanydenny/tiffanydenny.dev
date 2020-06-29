@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
   header: {
     marginTop: 20,
-    maxWidth: '95%',
+    maxWidth: '100%',
     [theme.breakpoints.down('xs')]: {
       marginTop: 0,
     },
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   introWrapper: {
-    width: '100vw',
+    width: '94%',
     height: '100vh',
     paddingLeft: 40,
     paddingRight: 40,
@@ -111,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '10%',
     position: 'relative',
     transform: 'translateX(-50%)',
-    width: '85%'
+    maxWidth: '97%',
   },
 
   footer: {
@@ -218,9 +218,9 @@ export default function App() {
           </div>
         </Grid>
 
-        <Grid item xs={12} className={ classes.portfolioWrapper }>
-          <HorizontalNonLinearStepper />
-        </Grid>
+      <Grid item xs={12} className={ classes.portfolioWrapper }>
+        <HorizontalNonLinearStepper />
+      </Grid>
     </Grid>
 
     <div className={ classes.footer }>

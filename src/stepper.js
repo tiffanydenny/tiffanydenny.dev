@@ -33,19 +33,12 @@ const useStyles = makeStyles((theme) => ({
 
   portfolioContent: {
     backgroundColor: '#eceff1',
+    width: '100%',
+    maxHeight: '75%',
     paddingBottom: '5%',
     paddingTop: '5%',
-    maxWidth: '100%',
-    maxHeight: '70vh',
     [theme.breakpoints.down('sm')]: {
-      paddingBottom: '5%',
-      paddingTop: '5%',
-      maxWidth: '100%',
-    },
-    [theme.breakpoints.down('xs')]: {
-      paddingBottom: '5%',
-      paddingTop: '5%',
-      maxWidth: '100%',
+      backgroundColor: '#fff',
     },
   },
 }));
@@ -133,37 +126,31 @@ export default function HorizontalNonLinearStepper() {
         ))}
       </Stepper>
       <div>
-        <div>
-          <div>
-            <Grid container
-                  spacing={8}
-                  direction='row'
-                  justify='center'
-                  alignItems='center'>
-              <Grid item xs={1}>
-                <IconButton disabled={activeStep === 0} onClick={handleBack}>
-                  {theme.direction === 'rtl' ? <ArrowForwardIosIcon /> : <ArrowBackIosIcon />}
-                </IconButton>
-              </Grid>
-              <ThemeProvider theme={theme}>
-                <Grid item xs={10}>
-                  <Paper className={ classes.portfolioContent } elevation={1} >
-                    {getStepContent(activeStep)}
-                  </Paper>
-                </Grid>
-              </ThemeProvider>
-              <Grid item xs={1}>
-                <IconButton
-                  variant="contained"
-                  color="primary"
-                  onClick={handleNext}
-                >
-                  {theme.direction === 'rtl' ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
-                </IconButton>
-              </Grid>
+        <Grid container
+              direction='row'
+              justify='center'
+              alignItems='center'>
+          <Grid item xs={1} style={{ textAlign: 'center' }}>
+            <IconButton disabled={activeStep === 0} onClick={handleBack}>
+              {theme.direction === 'rtl' ? <ArrowForwardIosIcon /> : <ArrowBackIosIcon />}
+            </IconButton>
+          </Grid>
+          <ThemeProvider theme={theme}>
+            <Grid item xs={9} sm={8} md={8} lg={10}>
+              <Paper className={ classes.portfolioContent } elevation={0} >
+                {getStepContent(activeStep)}
+              </Paper>
             </Grid>
-          </div>
-        </div>
+          </ThemeProvider>
+          <Grid item xs={1} style={{ textAlign: 'center' }}>
+            <IconButton
+              color="primary"
+              onClick={handleNext}
+            >
+              {theme.direction === 'rtl' ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
+            </IconButton>
+          </Grid>
+        </Grid>
       </div>
     </div>
   );
