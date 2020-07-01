@@ -7,6 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { createMuiTheme, responsiveFontSizes,} from '@material-ui/core/styles';
 
+
+let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles((theme) => ({

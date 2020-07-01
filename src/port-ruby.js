@@ -7,6 +7,8 @@ import LanguageIcon from '@material-ui/icons/Language';
 import IconButton from '@material-ui/core/IconButton';
 import { createMuiTheme, responsiveFontSizes, } from '@material-ui/core/styles';
 
+
+let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles((theme) => ({
