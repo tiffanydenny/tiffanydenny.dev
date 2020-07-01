@@ -3,13 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LanguageIcon from '@material-ui/icons/Language';
 import ReactPortfolio from './port-react.js';
 import RubyPortfolio from './port-ruby.js';
 import PythonPortfolio from './port-python.js';
@@ -17,8 +12,6 @@ import FuturePortfolio from './port-future.js';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import IconButton from '@material-ui/core/IconButton';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 
 
@@ -100,18 +93,6 @@ export default function HorizontalNonLinearStepper() {
 
   const handleStep = (step) => () => {
     setActiveStep(step);
-  };
-
-  const handleComplete = () => {
-    const newCompleted = completed;
-    newCompleted[activeStep] = true;
-    setCompleted(newCompleted);
-    handleNext();
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-    setCompleted({});
   };
 
   return (

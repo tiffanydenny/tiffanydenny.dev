@@ -2,15 +2,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LanguageIcon from '@material-ui/icons/Language';
 import IconButton from '@material-ui/core/IconButton';
-import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes, } from '@material-ui/core/styles';
 
-
-let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles((theme) => ({
