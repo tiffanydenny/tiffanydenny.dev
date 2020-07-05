@@ -12,6 +12,7 @@ import FuturePortfolio from './port-future.js';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import IconButton from '@material-ui/core/IconButton';
+import Hidden from '@material-ui/core/Hidden';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 
 
@@ -101,7 +102,7 @@ export default function HorizontalNonLinearStepper() {
         {steps.map((label, index) => (
           <Step key={label}>
             <StepButton onClick={handleStep(index)} completed={completed[index]}>
-              {label}
+              <Hidden xsDown>{label}</Hidden>
             </StepButton>
           </Step>
         ))}
