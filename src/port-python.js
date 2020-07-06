@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LanguageIcon from '@material-ui/icons/Language';
 import IconButton from '@material-ui/core/IconButton';
+import Link from '@material-ui/core/Link';
 import { createMuiTheme, responsiveFontSizes, } from '@material-ui/core/styles';
 
 
@@ -52,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   portSubHead: {
+    fontSize: '1.3em',
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center',
     },
@@ -64,7 +66,7 @@ export default function PythonPortfolio() {
   return (
     <Grid container
           direction="row"
-          justify="flex-start"
+          justify="space-evenly"
           alignItems="stretch"
           className={ classes.contentContainer }>
       <Grid item md={6} sm={12} className={ classes.gifContainer } >
@@ -80,12 +82,13 @@ export default function PythonPortfolio() {
               alignItems="flex-start"
               className={ classes.contentContainer }>
           <Grid item xs={12}>
-            <Typography variant="h4"
-                        gutterBottom="true"
+            <Typography gutterBottom="true"
                         className={ classes.portHeader }>
-                        Twittalyzer
+              <Link href="#" target="_blank" variant="h4" style={{ textDecoration: 'none' }}>
+                Twittalyzer
+              </Link>
             </Typography>
-            <Typography variant="subtitle1" gutterBottom="false" className={ classes.portSubHead }  >
+            <Typography variant="body1" gutterBottom="false" className={ classes.portSubHead }  >
               Python app using the Twitter API and OAuth
             </Typography>
           </Grid>

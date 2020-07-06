@@ -52,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   portSubHead: {
+    fontSize: '1.3em',
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center',
     },
@@ -85,7 +86,7 @@ export default function FuturePortfolio() {
                         className={ classes.portHeader }>
                         Your Project
             </Typography>
-            <Typography variant="subtitle1" gutterBottom="false" className={ classes.portSubHead } >
+            <Typography variant="body1" gutterBottom="false" className={ classes.portSubHead } >
               "You can't hack into a typewriter. That's all I have to say."
               - Ron Swanson
             </Typography>

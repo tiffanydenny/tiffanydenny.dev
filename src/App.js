@@ -85,6 +85,7 @@ const useStyles = makeStyles((theme) => ({
 
   introText: {
       marginBottom: 10,
+      maxWidth: '75%',
   },
 
   arrow: {
@@ -108,7 +109,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   footer: {
-    backgroundColor: "#37474f",
+    backgroundColor: "#263238",
     color: "#fff",
     height: 275,
     opacity: "75%",
@@ -122,6 +123,7 @@ const useStyles = makeStyles((theme) => ({
 
   footerNav: {
     marginBottom: '1em',
+    marginTop: '1em',
   },
 
   footerFunny: {
@@ -143,12 +145,12 @@ export default function App() {
             direction="column"
             justify="space-between"
             alignItems="stretch"
-            spacing={5} >
+            spacing={0} >
         <Grid item xs={12} >
           <div className={ classes.introWrapper }>
-            <Grid className={ classes.header } container spacing={3}>
+            <Grid className={ classes.header } container spacing={0}>
               <Grid item xs={12} sm={6}>
-                <Grid container spacing={3}
+                <Grid container spacing={0}
                                 justify="flex-start"
                                 alignItems="center"
                                 >
@@ -185,14 +187,16 @@ export default function App() {
                   </Typography>
                   <Typography variant="subtitle1"
                               gutterBottom="true">
-                              I used to help people relieve pain as a physical therapist and yoga instructor. Now I solve problems for people as a software developer - just another type of pain relief, really. I'm self-taught and looking for my first job in the industry. If you're hiring, I'd love to chat.
+                              I used to help people relieve pain as a physical therapist and yoga instructor. Now I solve problems for people as a software developer - just another type of pain relief, really. I am currently looking to join a great team as a junior developer. If you're hiring, I'd love to chat.
                   </Typography>
                 </ThemeProvider>
-                <Button color="primary"
-                        href="mailto: tiffany@tiffanydenny.com"
-                        target="_blank">
-                        Get in touch -->
-                </Button>
+                <Hidden smUp>
+                  <Button color="primary"
+                          href="mailto: tiffany@tiffanydenny.com"
+                          target="_blank">
+                          Get in touch -->
+                  </Button>
+                </Hidden>
               </div>
               <Button
               variant="contained"
@@ -221,7 +225,7 @@ export default function App() {
             direction='column'
             justify='space-evenly'
             alignItems='center'
-            spacing={2}>
+            spacing={0}>
         <Grid item xs={12} className={ classes.footerInfo }>
           <ThemeProvider theme={theme}>
             <Typography variant="h4" >
@@ -231,7 +235,7 @@ export default function App() {
           <Button color="grey"
                   href="mailto: tiffany@tiffanydenny.com"
                   target="_blank"
-                  style={{ textTransform: "lowercase" }}>
+                  style={{ textTransform: "lowercase", color: '#78909c'}}>
                   tiffany@tiffanydenny.com
           </Button>
         </Grid>
