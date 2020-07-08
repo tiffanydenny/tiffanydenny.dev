@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 0,
     },
     [theme.breakpoints.up('xl')]: {
-      fontSize: '1.5rem',
-      paddingRight: '10rem',
+      fontSize: '1.4rem',
+      paddingRight: '6rem',
     },
   },
 
@@ -77,7 +77,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   portSubHead: {
-    fontSize: '1.4em',
+    fontSize: '1.3rem',
+    marginBottom: 0,
     opacity: '85%',
     paddingRight: '4rem',
     [theme.breakpoints.down('sm')]: {
@@ -85,8 +86,8 @@ const useStyles = makeStyles((theme) => ({
       textAlign: 'center',
     },
     [theme.breakpoints.up('xl')]: {
-      fontSize: '2rem',
-      paddingRight: '9rem',
+      fontSize: '1.8rem',
+      paddingRight: '6rem',
     },
   },
 }))
@@ -131,14 +132,23 @@ export default function PythonPortfolio() {
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" className={ classes.contentDescription } >
-              <div style={{ paddingBottom: '1em' }}>
-              As my interest in backend develpment grew, I wanted more experience with databases, so I took this <a href='https://www.youtube.com/watch?v=qw--VYLpxG4&list=PL3Wb0P4edCiszDGASKO99gK7eKUFJi3tU&index=2&t=1s' target='_blank' rel='noopener'>PostgreSQL Tutorial </a> with Nelson Djalo.
+              <div>
+              <h4 style={{marginBottom: 5}}>What it does</h4>
+              Allows users to use OAuth to login with Twitter, and query the Twitter API for statuses based on a keyword. It then performs sentiment analysis on the tweets using the Text Processing API.
               </div>
-              <div style={{ paddingBottom: '1em' }}>
-              The aforementioned tutorial fueled my interest further, leading me to this <a href='https://www.udemy.com/share/101WR2CEIadVxaQHo=/' target='_blank' rel='noopener'>Python and PostgreSQL course </a> on Udemy with Jose Salvatierra. This Twittalyzer project is a product of my work in that course, where I used OAuth and the Twitter API to allow users to securely login and query tweets, then pass them through the <a href='https://text-processing.com' target='_blank' rel='noopener'> Text Processing API</a>.
+              <div>
+              <h4 style={{marginBottom: 5}}>Why I built it</h4>
+              I really enjoy exploring APIs, and wanted to learn more about querying and manipulating data, as I will need to do a lot of this in a project I have planned. I also wanted to become more familiar with Python, especially as it is the language preferred in my computer science courses.
               </div>
-              <div style={{ paddingBottom: '1em' }}>
-              I was also introduced to Flask and Jinja2 in the course of this project, and spent quite a bit of time reading documentation to figure out what else I could do with the framework.
+              <div>
+              <h4 style={{marginBottom: 5}}>Resources</h4>
+                <ul style={{marginTop: 0}}>
+                  <li><a href='https://www.udemy.com/share/101WR2CEIadVxaQHo=/' target='_blank' rel='noopener'>Python and PostgreSQL Course with Jose Salvatierra </a></li>
+                  <li><a href='https://www.youtube.com/watch?v=qw--VYLpxG4&list=PL3Wb0P4edCiszDGASKO99gK7eKUFJi3tU&index=2&t=1s' target='_blank' rel='noopener'>PostgreSQL Tutorial with Nelson Djalo</a></li>
+                  <li><a href='https://developer.twitter.com/en/docs/api-reference-index' target='_blank' rel='noopener'> Twitter API Docs </a> | <a href='https://text-processing.com' target='_blank' rel='noopener'> Text Processing API Docs</a> | <a href='https://pypi.org/project/Flask/' target='_blank' rel='noopener'> Flask Docs</a> </li>
+                  <li><a href='https://www.coursera.org/learn/what-is-a-proof/home/welcome' target='_blank' rel='noopener'> Mathematical Thinking in Computer Science</a> </li>
+                  <li><a href='https://www.coursera.org/specializations/data-structures-algorithms' target='_blank' rel='noopener'> Data Structures and Algorithms Specialization</a> </li>
+                </ul>
               </div>
             </Typography>
           </Grid>

@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 0,
     },
     [theme.breakpoints.up('xl')]: {
-      fontSize: '1.5rem',
-      paddingRight: '10rem',
+      fontSize: '1.4rem',
+      paddingRight: '6rem',
     },
   },
 
@@ -77,16 +77,18 @@ const useStyles = makeStyles((theme) => ({
   },
 
   portSubHead: {
-    fontSize: '1.4em',
+    fontSize: '1.3rem',
+    marginBottom: 0,
     opacity: '85%',
     paddingRight: '4rem',
     [theme.breakpoints.down('sm')]: {
+      fontSize: '1.3rem',
       paddingRight: 0,
       textAlign: 'center',
     },
     [theme.breakpoints.up('xl')]: {
-      fontSize: '2rem',
-      paddingRight: '9rem',
+      fontSize: '1.8rem',
+      paddingRight: '6rem',
     },
   },
 }))
@@ -137,14 +139,20 @@ export default function RubyPortfolio() {
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" className={ classes.contentDescription } >
-              <div style={{ paddingBottom: '1em' }}>
-              An app that allows users to register, login/out of their account, create 'microposts,' and follow one another. This site was built in order to gain experience with Rails in my quest to skill-build in the area of object-oriented programming.
+              <div>
+              <h4 style={{marginBottom: 5}}>What it does</h4>
+              Handles user registration, authorization, authentication, and user data based on users' relationships to the 'microposts' they create as well as relationships to one another via 'follow' and 'unfollow' options.
               </div>
-              <div style={{ paddingBottom: '1em' }}>
-              Based on a recommendation, I took <a href='https://www.learnenough.com/ruby-on-rails-6th-edition' target='_blank' rel='noopener'>Michael Hartl's Rails Tutorial</a>, and especially appreciated the focus on test-driven, functional programming within the greater scope of the project.
+              <div>
+              <h4 style={{marginBottom: 5}}>Why I built it</h4>
+              I wanted to gain experience in object-oriented programming, and the Rails community seemed especially supportive. It also gave me an opportunity to dig into test-driven development and relational databases. Both the front-end and back-ends of this site were built in Rails, though, which prompted me to seek out another front-end solution (hello, React!).
               </div>
-              <div style={{ paddingBottom: '1em' }}>
-              The project allowed me to work with handling user data and authentication, and allowing users have relationships with their individual posts as well as with other users. The database is SQLite, and both the front and back ends are developed using Rails, which is one of the things that prompted me to learn React.
+              <div>
+              <h4 style={{marginBottom: 5}}>Resources</h4>
+                <ul style={{marginTop: 0}}>
+                  <li><a href='https://www.learnenough.com/ruby-on-rails-6th-edition' target='_blank' rel='noopener'>Michael Hartl's Rails Tutorial</a></li>
+                  <li><a href='https://api.rubyonrails.org/' target='_blank' rel='noopener'>Rails API</a></li>
+                </ul>
               </div>
             </Typography>
           </Grid>

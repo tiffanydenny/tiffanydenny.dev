@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 0,
     },
     [theme.breakpoints.up('xl')]: {
-      fontSize: '1.5rem',
-      paddingRight: '10rem',
+      fontSize: '1.4rem',
+      paddingRight: '6rem',
     },
   },
 
@@ -77,16 +77,18 @@ const useStyles = makeStyles((theme) => ({
   },
 
   portSubHead: {
-    fontSize: '1.4em',
+    fontSize: '1.3rem',
+    marginBottom: 0,
     opacity: '85%',
     paddingRight: '4rem',
     [theme.breakpoints.down('sm')]: {
+      fontSize: '1.3rem',
       paddingRight: 0,
       textAlign: 'center',
     },
     [theme.breakpoints.up('xl')]: {
-      fontSize: '2rem',
-      paddingRight: '9rem',
+      fontSize: '1.8rem',
+      paddingRight: '6rem',
     },
   },
 }))
@@ -138,17 +140,19 @@ export default function FuturePortfolio() {
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" className={ classes.contentDescription } >
-              <div style={{ paddingBottom: '1em' }}>
+              <div>
               Ron Swanson doesn't like computers, but I do!
               </div>
-              <div style={{ paddingBottom: '1em' }}>
-              I'm looking to become part of a great engineering team. If you think there might be a fit, please reach out!
+              <div>
+              <h4 style={{marginBottom: 5}}>What I do</h4>
+              I'm familiar with Python, Ruby/Rails, JavaScript, ReactJS, HTML5/CSS3, and SQL, as well as the basics of test-driven development and API development. I am also excellent at reading documentation, forum posts, and helpful videos to learn anything necessary to complete a task.
               </div>
-              <div style={{ paddingBottom: '1em' }}>
-              I approach my work with curiosity, diligence, good humor, and dedication to quality work. I'm both teachable and effective autonomously, and I won't bullshit you.
+              <div>
+              <h4 style={{marginBottom: 5}}>Why Me</h4>
+              I approach my work with curiosity, diligence, and good humor, and I'm dedicated to learning and constant improvement. I am teachable, but also quite effective autonomously, and I have excellent problem-solving and people skills from 15 years in health and wellness.
               </div>
-              <div style={{ paddingBottom: '1em' }}>
-              You can reach me at <a href='mailto: tiffany@tiffanydenny.com' target='_blank' rel='noopener'>tiffany@tiffanydenny.com</a>, or check out my <a href='https://linkedin.com/in/tiffanydenny' target='_blank' rel='noopener'>LinkedIn</a> and <a href='https://github.com/tiffanydenny' target='_blank' rel='noopener'>Github</a> profiles.
+              <div style={{ paddingTop: '1em' }}>
+              If you're looking for a new team member, I'd be happy to chat! Please feel free to <a href='mailto: tiffany@tiffanydenny.com' target='_blank' rel='noopener'>reach out</a>. 
               </div>
             </Typography>
           </Grid>

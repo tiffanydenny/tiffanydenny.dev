@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 0,
     },
     [theme.breakpoints.up('xl')]: {
-      fontSize: '1.5rem',
-      paddingRight: '10rem',
+      fontSize: '1.4rem',
+      paddingRight: '6rem',
     },
   },
 
@@ -77,16 +77,18 @@ const useStyles = makeStyles((theme) => ({
   },
 
   portSubHead: {
-    fontSize: '1.4em',
+    fontSize: '1.3rem',
+    marginBottom: 0,
     opacity: '85%',
     paddingRight: '4rem',
     [theme.breakpoints.down('sm')]: {
+      fontSize: '1.3rem',
       paddingRight: 0,
       textAlign: 'center',
     },
     [theme.breakpoints.up('xl')]: {
-      fontSize: '2rem',
-      paddingRight: '9rem',
+      fontSize: '1.8rem',
+      paddingRight: '6rem',
     },
   },
 }))
@@ -137,14 +139,21 @@ export default function ReactPortfolio() {
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" className={ classes.contentDescription } >
-              <div style={{ paddingBottom: '1em', }}>
-              Once I completed courses in JavaScript and Ruby (from the <a href='https://www.learnenough.com/' target='_blank' rel='noopener'>LearnEnough series with Michael Hartl </a>), I found I needed better front-end options for future projects.
+              <div>
+              <h4 style={{marginBottom: 5}}>What it does</h4>
+              Using the Github API, it filters popular profiles for different coding languages, and lets you "battle" other developers based on follower and repo counts.
               </div>
-              <div style={{ paddingBottom: '1em', }}>
-              I like what I'd seen from ReactJS, and made this fun app that not only makes use of several features of ReactJS, but also allowed me to practice engaging with the Github API. This app was made with the help of the <a href='https://ui.dev/' target='_blank' rel='noopener'>Tyler McGinnis ReactJS course</a>, and some supplemental learning from videos such as <a href='https://www.youtube.com/watch?v=YaZg8wg39QQ&list=PL3Wb0P4edCiszDGASKO99gK7eKUFJi3tU&index=5&t=2s' target='_blank' rel='noopener'>Michael Chan's talk on React Component Patterns</a>.
+              <div>
+              <h4 style={{marginBottom: 5}}>Why I built it</h4>
+              After completing courses in JavaScript and Ruby, I found I needed better front-end options for future projects. I liked what I'd seen from React, and was inspired through this experience to use React for my portfolio site as well as for the front-end of my <a href='https://github.com/tiffanydenny/elm_app' target='_blank' rel='noopener'>next project</a>.
               </div>
-              <div style={{ paddingBottom: '1em' }}>
-              This experience inspired me to use React for my own dev site, the very one you are perusing right now, and I've begun a <a href='https://github.com/tiffanydenny/elm_app' target='_blank' rel='noopener'>new project</a> that will feature React on the front end as well!
+              <div>
+              <h4 style={{marginBottom: 5}}>Resources</h4>
+                <ul style={{marginTop: 0}}>
+                  <li><a href='https://ui.dev/' target='_blank' rel='noopener'>Tyler McGinnis ReactJS course</a></li>
+                  <li><a href='https://www.youtube.com/watch?v=YaZg8wg39QQ&list=PL3Wb0P4edCiszDGASKO99gK7eKUFJi3tU&index=5&t=2s' target='_blank' rel='noopener'>Michael Chan's talk on React Component Patterns</a></li>
+                  <li><a href='https://www.learnenough.com/' target='_blank' rel='noopener'>LearnEnough series with Michael Hartl </a> </li>
+                </ul>
               </div>
             </Typography>
           </Grid>

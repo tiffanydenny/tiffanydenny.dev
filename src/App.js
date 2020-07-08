@@ -240,7 +240,7 @@ export default function App() {
                               style={{ fontSize: '1.2em'}}>
                               I used to help people relieve pain as a physical therapist and yoga instructor. Now I solve problems for people as a software developer - just another type of pain relief, really.
 
-                              I'm game to work on the back end or the front end (or both) of a project, and am currently looking to join a great team as a junior developer. If you're hiring, I'd love to chat.
+                              I'm game to work on the back-end or the front-end (or both) of a project, and am currently looking to join a great team as a junior developer. If you're hiring, I'd love to chat.
                   </Typography>
                 </ThemeProvider>
                 <Hidden smUp>
@@ -257,7 +257,7 @@ export default function App() {
               size="large"
               className={ classes.download }
               startIcon={ <CloudDownloadIcon /> }
-              href="https://drive.google.com/file/d/1LnHqRL_pRH28hdrytECZ4Cc_69FEDEV3/view?usp=sharing"
+              href="https://drive.google.com/file/d/1zApoAsY0nA3LjMeX879oKZeUAlhpJrm6/view?usp=sharing"
               target='_blank' rel='noopener'
               > Download My Resume
               </Button>
