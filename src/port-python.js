@@ -15,16 +15,21 @@ theme = responsiveFontSizes(theme);
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     [theme.breakpoints.down('sm')]: {
-      paddingTop: '1em',
       alignItems: 'center',
+      paddingTop: '1em',
     },
   },
 
   contentDescription: {
     marginTop: '1rem',
-    paddingRight: '2rem',
+    paddingRight: '5rem',
+    opacity: '75%',
     [theme.breakpoints.down('sm')]: {
-      paddingRight: 0
+      paddingRight: 0,
+    },
+    [theme.breakpoints.up('xl')]: {
+      fontSize: '1.5rem',
+      paddingRight: '10rem',
     },
   },
 
@@ -52,10 +57,36 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  portSubHead: {
-    fontSize: '1.3em',
+  portTitle: {
+    marginRight: '.75rem',
+    textDecoration: 'none',
     [theme.breakpoints.down('sm')]: {
+      marginRight: '.25rem',
+    },
+    [theme.breakpoints.up('xl')]: {
+      fontSize: '3rem',
+    },
+  },
+
+  portButton: {
+    marginRight: '-1rem',
+    top: -6.75,
+    [theme.breakpoints.up('xl')]: {
+      fontSize: '2rem',
+    },
+  },
+
+  portSubHead: {
+    fontSize: '1.4em',
+    opacity: '85%',
+    paddingRight: '4rem',
+    [theme.breakpoints.down('sm')]: {
+      paddingRight: 0,
       textAlign: 'center',
+    },
+    [theme.breakpoints.up('xl')]: {
+      fontSize: '2rem',
+      paddingRight: '9rem',
     },
   },
 }))
@@ -71,7 +102,7 @@ export default function PythonPortfolio() {
           className={ classes.contentContainer }>
       <Grid item md={6} sm={12} className={ classes.gifContainer } >
         <div className={ classes.gifDiv }>
-          <img className={ classes.gif } src={require("./images/comingsoon.gif")} alt="Demo">
+          <img className={ classes.gif } src={require("./images/twittalyzer.gif")} alt="Demo">
           </img>
         </div>
       </Grid>
@@ -84,36 +115,30 @@ export default function PythonPortfolio() {
           <Grid item xs={12}>
             <Typography gutterBottom="true"
                         className={ classes.portHeader }>
-              <Link href="#" target="_blank" variant="h4" style={{ textDecoration: 'none' }}>
+              <Link href="https://github.com/tiffanydenny/twittalyzer" target='_blank' rel='noopener' variant="h4" className={ classes.portTitle }>
                 Twittalyzer
               </Link>
+              <IconButton color="primary"
+                          aria-label="View on GitHub"
+                          href="https://github.com/tiffanydenny/twittalyzer" target='_blank' rel='noopener'
+                          className={ classes.portButton}>
+                          <GitHubIcon style={{ fontSize: '1.5em' }} />
+              </IconButton>
             </Typography>
             <Typography variant="body1" gutterBottom="false" className={ classes.portSubHead }  >
-              Python app using the Twitter API and OAuth
+              Python. PostgreSQL. Flask. Twitter API. Bootstrap.
             </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <IconButton color="primary"
-                        aria-label="View on GitHub"
-                        href="https://github.com/tiffanydenny" target="_blank">
-                        <GitHubIcon style={{ fontSize: '1.5em' }} />
-            </IconButton>
-            <IconButton color="primary"
-                        aria-label="View site in production"
-                        href="#" target="_blank">
-                        <LanguageIcon style={{ fontSize: '1.75em' }} />
-            </IconButton>
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" className={ classes.contentDescription } >
               <div style={{ paddingBottom: '1em' }}>
-              As my interest in backend develpment grew, I wanted more experience with databases, so I took this <a href='https://www.youtube.com/watch?v=qw--VYLpxG4&list=PL3Wb0P4edCiszDGASKO99gK7eKUFJi3tU&index=2&t=1s'>PostgreSQL Tutorial </a> with Nelson Djalo.
+              As my interest in backend develpment grew, I wanted more experience with databases, so I took this <a href='https://www.youtube.com/watch?v=qw--VYLpxG4&list=PL3Wb0P4edCiszDGASKO99gK7eKUFJi3tU&index=2&t=1s' target='_blank' rel='noopener'>PostgreSQL Tutorial </a> with Nelson Djalo.
               </div>
               <div style={{ paddingBottom: '1em' }}>
-              The aforementioned tutorial fueled my interest further, leading me to this <a href='https://www.udemy.com/share/101WR2CEIadVxaQHo=/'>Python and PostgreSQL course </a> on Udemy with Jose Salvatierra. This Twittalyzer project is a product of my work in that course, where I used OAuth and the Twitter API to allow users to securely login and filter Twitter content.
+              The aforementioned tutorial fueled my interest further, leading me to this <a href='https://www.udemy.com/share/101WR2CEIadVxaQHo=/' target='_blank' rel='noopener'>Python and PostgreSQL course </a> on Udemy with Jose Salvatierra. This Twittalyzer project is a product of my work in that course, where I used OAuth and the Twitter API to allow users to securely login and query tweets, then pass them through the <a href='https://text-processing.com' target='_blank' rel='noopener'> Text Processing API</a>.
               </div>
               <div style={{ paddingBottom: '1em' }}>
-              I was also introduced to Flask in this course, and it made me want to continue digging deeper into database development and become versed in Docker, Kubernetes, and AWS cloud development.
+              I was also introduced to Flask and Jinja2 in the course of this project, and spent quite a bit of time reading documentation to figure out what else I could do with the framework.
               </div>
             </Typography>
           </Grid>

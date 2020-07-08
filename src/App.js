@@ -44,20 +44,46 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
     maxWidth: '100%',
     [theme.breakpoints.down('xs')]: {
-      marginTop: 0,
+      marginTop: 5,
+    },
+  },
+
+  avatar: {
+    [theme.breakpoints.up('xl')]: {
+      width: theme.spacing(9),
+      height: theme.spacing(9),
+    },
+  },
+
+  headerTextGrid: {
+    textAlign: 'left',
+    [theme.breakpoints.down('xs')]: {
+      textAlign: 'right',
+      paddingRight: 5,
+    },
+    [theme.breakpoints.up('xl')]: {
+      paddingLeft: 5,
+    },
+  },
+
+  headerName: {
+    [theme.breakpoints.up('xl')]: {
+      fontSize: '1.75em',
     },
   },
 
   headerText: {
-    textAlign: 'left',
-    [theme.breakpoints.down('xs')]: {
-      textAlign: 'right',
+    [theme.breakpoints.up('xl')]: {
+      fontSize: '1.5em',
     },
   },
 
   headerEmail: {
     textAlign: 'right',
     textDecorationStyle: 'none',
+    [theme.breakpoints.up('xl')]: {
+      fontSize: '1.5em',
+    },
   },
 
   introWrapper: {
@@ -81,11 +107,33 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: '90vw',
       top: '10vh',
     },
+    [theme.breakpoints.up('xl')]: {
+      top: '25vh',
+    },
   },
 
   introText: {
       marginBottom: 10,
-      maxWidth: '75%',
+      maxWidth: '100%',
+      [theme.breakpoints.down('xs')]: {
+        maxWidth: '90vw',
+        top: '10vh',
+      },
+      [theme.breakpoints.up('xl')]: {
+        maxWidth: '90%',
+        fontSize: '1.4em',
+      },
+  },
+
+  download: {
+    position: 'relative',
+    left: 0,
+    top: 30,
+    [theme.breakpoints.up('xl')]: {
+      height: '3rem',
+      width: '21rem',
+      fontSize: '1.2rem',
+    },
   },
 
   arrow: {
@@ -154,14 +202,16 @@ export default function App() {
                                 justify="flex-start"
                                 alignItems="center"
                                 >
-                  <Grid item md={1} sm={2} xs={6}>
-                    <Avatar alt="Tiffany Denny" src={ require(`./images/Tiff_headshot_site.jpg`) }/>
+                  <Grid item md={1} sm={2} xs={6} >
+                    <Avatar alt="Tiffany Denny" className={ classes.avatar } src={ require(`./images/Tiff_headshot_site.jpg`) }/>
                   </Grid>
-                  <Grid className={ classes.headerText } item md={11} sm={10} xs={6}>
+                  <Grid className={ classes.headerTextGrid } item md={11} sm={10} xs={6}>
                   <ThemeProvider theme={theme}>
-                    <Typography variant="h6">Tiffany Denny
+                    <Typography variant="h6" className={ classes.headerName }>
+                      Tiffany Denny
                     </Typography>
-                    <Typography variant="subtitle1">Software Developer
+                    <Typography variant="subtitle1" className={ classes.headerText }>
+                      Software Developer
                     </Typography>
                   </ThemeProvider>
                   </Grid>
@@ -186,14 +236,17 @@ export default function App() {
                               How can I help?
                   </Typography>
                   <Typography variant="subtitle1"
-                              gutterBottom="true">
-                              I used to help people relieve pain as a physical therapist and yoga instructor. Now I solve problems for people as a software developer - just another type of pain relief, really. I am currently looking to join a great team as a junior developer. If you're hiring, I'd love to chat.
+                              gutterBottom="true"
+                              style={{ fontSize: '1.2em'}}>
+                              I used to help people relieve pain as a physical therapist and yoga instructor. Now I solve problems for people as a software developer - just another type of pain relief, really.
+
+                              I'm game to work on the back end or the front end (or both) of a project, and am currently looking to join a great team as a junior developer. If you're hiring, I'd love to chat.
                   </Typography>
                 </ThemeProvider>
                 <Hidden smUp>
                   <Button color="primary"
                           href="mailto: tiffany@tiffanydenny.com"
-                          target="_blank">
+                          target='_blank' rel='noopener'>
                           Get in touch -->
                   </Button>
                 </Hidden>
@@ -202,10 +255,10 @@ export default function App() {
               variant="contained"
               color="primary"
               size="large"
-              style={{ position: 'relative', left: 0, top: 30 }}
+              className={ classes.download }
               startIcon={ <CloudDownloadIcon /> }
               href="https://drive.google.com/file/d/1LnHqRL_pRH28hdrytECZ4Cc_69FEDEV3/view?usp=sharing"
-              target="_blank"
+              target='_blank' rel='noopener'
               > Download My Resume
               </Button>
             </div>
@@ -234,7 +287,7 @@ export default function App() {
           </ThemeProvider>
           <Button color="grey"
                   href="mailto: tiffany@tiffanydenny.com"
-                  target="_blank"
+                  target='_blank' rel='noopener'
                   style={{ textTransform: "lowercase", color: '#78909c'}}>
                   tiffany@tiffanydenny.com
           </Button>
@@ -242,14 +295,14 @@ export default function App() {
         <Grid item xs={12} >
           <ThemeProvider theme={theme}>
             <Typography className={ classes.footerNav }>
-              <Link href="https://github.com/tiffanydenny" target="_blank">
+              <Link href="https://github.com/tiffanydenny" target='_blank' rel='noopener'>
                 <GitHubIcon style={{ color: 'white', fontSize: '2.5em', marginRight: '1em' }} />
               </Link>
-              <Link href="https://linkedin.com/in/tiffanydenny" target="_blank">
+              <Link href="https://linkedin.com/in/tiffanydenny" target='_blank' rel='noopener'>
                 <LinkedInIcon style={{ color: 'white', fontSize: '2.5em',
                 marginRight: '1em' }} />
               </Link>
-              <Link href="https://twitter.com/tiff_outdoors" target="_blank">
+              <Link href="https://twitter.com/tiff_outdoors" target='_blank' rel='noopener'>
                 <TwitterIcon style={{ color: 'white', fontSize: '2.5em' }} />
               </Link>
             </Typography>

@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import IconButton from '@material-ui/core/IconButton';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import Link from '@material-ui/core/Link';
 import { createMuiTheme, responsiveFontSizes,} from '@material-ui/core/styles';
 
 
@@ -14,16 +15,21 @@ theme = responsiveFontSizes(theme);
 const useStyles = makeStyles((theme) => ({
   contentContainer: {
     [theme.breakpoints.down('sm')]: {
-      paddingTop: '1em',
       alignItems: 'center',
+      paddingTop: '1em',
     },
   },
 
   contentDescription: {
     marginTop: '1rem',
-    paddingRight: '2rem',
+    paddingRight: '5rem',
+    opacity: '75%',
     [theme.breakpoints.down('sm')]: {
-      paddingRight: 0
+      paddingRight: 0,
+    },
+    [theme.breakpoints.up('xl')]: {
+      fontSize: '1.5rem',
+      paddingRight: '10rem',
     },
   },
 
@@ -51,10 +57,36 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  portSubHead: {
-    fontSize: '1.3em',
+  portTitle: {
+    marginRight: '.75rem',
+    textDecoration: 'none',
     [theme.breakpoints.down('sm')]: {
+      marginRight: '.25rem',
+    },
+    [theme.breakpoints.up('xl')]: {
+      fontSize: '3rem',
+    },
+  },
+
+  portButton: {
+    marginRight: '-1rem',
+    top: -6.75,
+    [theme.breakpoints.up('xl')]: {
+      fontSize: '2rem',
+    },
+  },
+
+  portSubHead: {
+    fontSize: '1.4em',
+    opacity: '85%',
+    paddingRight: '4rem',
+    [theme.breakpoints.down('sm')]: {
+      paddingRight: 0,
       textAlign: 'center',
+    },
+    [theme.breakpoints.up('xl')]: {
+      fontSize: '2rem',
+      paddingRight: '9rem',
     },
   },
 }))
@@ -81,27 +113,28 @@ export default function FuturePortfolio() {
               alignItems="flex-start"
               className={ classes.contentContainer }>
           <Grid item xs={12}>
-            <Typography variant="h4"
-                        gutterBottom="true"
+            <Typography gutterBottom="true"
                         className={ classes.portHeader }>
-                        Your Project
+              <Link href='mailto:tiffany@tiffanydenny.com' target='_blank' rel='noopener' variant='h4' className={ classes.portTitle }>
+                Your Project
+              </Link>
+              <IconButton color="primary"
+                          aria-label="View on GitHub"
+                          href="https://github.com/tiffanydenny" target="_blank"
+                          className={ classes.portButton}>
+                          <GitHubIcon style={{ fontSize: '1.5em' }} />
+              </IconButton>
+              <IconButton color="primary"
+                          aria-label="LinkedIn"
+                          href="https://linkedin.com/in/tiffanydenny" target="_blank"
+                          className={ classes.portButton}>
+                          <LinkedInIcon style={{ fontSize: '1.75em' }} />
+              </IconButton>
             </Typography>
             <Typography variant="body1" gutterBottom="false" className={ classes.portSubHead } >
               "You can't hack into a typewriter. That's all I have to say."
               - Ron Swanson
             </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <IconButton color="primary"
-                        aria-label="View on GitHub"
-                        href="https://github.com/tiffanydenny" target="_blank">
-                        <GitHubIcon style={{ fontSize: '1.5em' }} />
-            </IconButton>
-            <IconButton color="primary"
-                        aria-label="LinkedIn"
-                        href="https://linkedin.com/in/tiffanydenny" target="_blank">
-                        <LinkedInIcon style={{ fontSize: '1.75em' }} />
-            </IconButton>
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" className={ classes.contentDescription } >
@@ -115,7 +148,7 @@ export default function FuturePortfolio() {
               I approach my work with curiosity, diligence, good humor, and dedication to quality work. I'm both teachable and effective autonomously, and I won't bullshit you.
               </div>
               <div style={{ paddingBottom: '1em' }}>
-              You can reach me at <a href='mailto: tiffany@tiffanydenny.com'>tiffany@tiffanydenny.com</a>, or check out my <a href='https://linkedin.com/in/tiffanydenny'>LinkedIn</a> and <a href='https://github.com/tiffanydenny'>Github</a> profiles.
+              You can reach me at <a href='mailto: tiffany@tiffanydenny.com' target='_blank' rel='noopener'>tiffany@tiffanydenny.com</a>, or check out my <a href='https://linkedin.com/in/tiffanydenny' target='_blank' rel='noopener'>LinkedIn</a> and <a href='https://github.com/tiffanydenny' target='_blank' rel='noopener'>Github</a> profiles.
               </div>
             </Typography>
           </Grid>
