@@ -36,6 +36,14 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: '#fff',
       maxHeight: '75%',
     },
+    [theme.breakpoints.up('lg')]: {
+      minHeight: 600,
+      maxHeight: 600,
+    },
+    [theme.breakpoints.between(1300, 1400)]: {
+      minHeight: 750,
+      maxHeight: 750,
+    },
     [theme.breakpoints.up('xl')]: {
       minHeight: 750,
       maxHeight: 750,
