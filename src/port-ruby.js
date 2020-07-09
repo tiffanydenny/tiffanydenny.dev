@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
   gifContainer: {
     maxHeight: '75vh',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       height: 'auto',
       width: '100%',
     },
@@ -52,7 +52,12 @@ const useStyles = makeStyles((theme) => ({
   },
 
   portHeader: {
+    [theme.breakpoints.down('md')]: {
+      marginTop: '3rem',
+      textAlign: 'left',
+    },
     [theme.breakpoints.down('sm')]: {
+      marginTop: 0,
       textAlign: 'center',
     },
   },
@@ -81,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 0,
     opacity: '85%',
     paddingRight: '4rem',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: '1.3rem',
       paddingRight: 0,
       textAlign: 'center',
@@ -108,7 +113,7 @@ export default function RubyPortfolio() {
           </img>
         </div>
       </Grid>
-      <Grid item md={6} sm={12}>
+      <Grid item lg={6} sm={12}>
         <Grid container
               direction="column"
               justify="center"

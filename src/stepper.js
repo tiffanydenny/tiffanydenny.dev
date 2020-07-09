@@ -28,11 +28,17 @@ const useStyles = makeStyles((theme) => ({
   portfolioContent: {
     backgroundColor: '#eceff1',
     width: '100%',
-    maxHeight: '75%',
+    minHeight: 550,
+    maxHeight: 550,
     paddingBottom: '5%',
     paddingTop: '5%',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       backgroundColor: '#fff',
+      maxHeight: '75%',
+    },
+    [theme.breakpoints.up('xl')]: {
+      minHeight: 750,
+      maxHeight: 750,
     },
   },
 }));

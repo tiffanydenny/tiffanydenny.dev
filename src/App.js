@@ -238,9 +238,9 @@ export default function App() {
                   <Typography variant="subtitle1"
                               gutterBottom="true"
                               style={{ fontSize: '1.2em'}}>
-                              I used to help people relieve pain as a physical therapist and yoga instructor. Now I solve problems for people as a software developer - just another type of pain relief, really.
+                              I'm a software developer that solves problems using creative, critical thinking, and a lot of perserverence. I used to help people solve complex and painful orthopedic conditions as a physical therapist and yoga instructor, and I figure with engineering I'm just working with a different type of pain, really.
 
-                              I'm game to work on the back-end or the front-end (or both) of a project, and am currently looking to join a great team as a junior developer. If you're hiring, I'd love to chat.
+                              I'm game to work on the back-end or the front-end (or both) of a project, and am currently looking to join a great team as a junior developer. Let's chat!
                   </Typography>
                 </ThemeProvider>
                 <Hidden smUp>
