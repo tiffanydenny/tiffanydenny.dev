@@ -40,11 +40,11 @@ const useStyles = makeStyles((theme) => ({
       minHeight: 600,
       maxHeight: 600,
     },
-    [theme.breakpoints.between(1300, 1400)]: {
+    [theme.breakpoints.between(1280, 1400)]: {
       minHeight: 750,
       maxHeight: 750,
     },
-    [theme.breakpoints.up('xl')]: {
+    [theme.breakpoints.up(1400)]: {
       minHeight: 750,
       maxHeight: 750,
     },
