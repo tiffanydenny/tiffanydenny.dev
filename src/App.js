@@ -115,9 +115,10 @@ const useStyles = makeStyles((theme) => ({
   introText: {
       marginBottom: 10,
       maxWidth: '100%',
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down('sm')]: {
         maxWidth: '90vw',
         top: '10vh',
+        fontSize: '.8rem',
       },
       [theme.breakpoints.up('xl')]: {
         maxWidth: '90%',
